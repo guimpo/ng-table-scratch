@@ -7,9 +7,6 @@ import { GTableComponent } from './gtable/gtable.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { NgxPaginationModule } from 'ngx-pagination';
-
-
 @NgModule({
   declarations: [
     GTableComponent
@@ -19,9 +16,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     GTableRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule,
-
-    NgxPaginationModule
+    FormsModule
   ]
 })
 export class GTableModule { }
