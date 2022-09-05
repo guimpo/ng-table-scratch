@@ -1,0 +1,58 @@
+<form autocomplete="off">
+  <label for="fid">ID:</label>
+  <input type="text" id="fid" name="fid" list="id-customer-autocomplete"
+    #fid (keyup)="idFilter(fid.value)" 
+  >
+  <datalist id="id-customer-autocomplete">
+    <option *ngFor="let c of customers.source | async">
+      {{c.id}}
+    </option>
+  </datalist>
+  <!-- <label for="fname">Name:</label>
+  <input type="text" id="fname" name="fname">
+  <label for="fcountry">Country:</label>
+  <input type="text" id="fcountry" name="fcountry" autocomplete="on">
+  <input type="submit"> -->
+</form>
+
+<div>
+  <h1>Angular 12 HTML Table Example</h1>
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let c of displayedColumns">
+          {{c}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of customers.stream | async">
+        <td>{{ c.id }}</td>
+        <td>{{ c.name }}</td>
+        <td>{{ c.country?.name }}</td>
+        <td>{{ c.company }}</td>
+        <td>{{ c.date }}</td>
+        <td>{{ c.status }}</td>
+        <td>{{ c.representative?.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <label for="fitemPerPage">itens per page:</label>
+  <select name="fitemPerPage" id="fitemPerPage"
+      #fitemPerPage (change)="itemPerpage(fitemPerPage.value)" 
+  >
+    <option value="10">10</option>
+    <option value="20">20</option>
+    <option value="30">30</option>
+  </select>
+  <a href="#"
+    (click)="previous()"
+  >&laquo;</a>
+
+  <a href="#"
+  (click)="next()"
+  >&raquo;</a>
+</div>
